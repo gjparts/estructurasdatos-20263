@@ -41,7 +41,53 @@ int main(){
 	//puede llegar a contener valores remanentes (basura) dejados por
 	//otros programas que no vaciaron correctemente la memoria.
 	
+	//un arreglo sin inicializar que normalmente viene con datos basura
+	//podemos inicializarlo con valores CERO nosotros mismos:
+	for(int i = 0; i < 12; i++){
+		arreglo1[i] = 0;
+	}
+	cout << "---------------------------------------" << endl;
 	
+	//imprimir de nuevo el contenido de arreglo1
+	for(int i = 0; i < 12; i++){
+		cout << arreglo1[i] << endl;
+	}
+	
+	//2) Declarar un arreglo prellenado con datos
+	int arreglo2[] = { 9, 100, -7, 123, 50, 777, -8, 3 };
+	cout << "---------------------------------------" << endl;
+	
+	//imprimir el contenido de arreglo2
+	for(int i = 0; i < 8; i++){
+		cout << arreglo2[i] << endl;
+	}
+	
+	//un arreglo en C++ es una coleccion de apuntadores de memoria
+	//si Usted imprime el arreglo sin indicar el numero de indice
+	//entonces se le mostrara la direccion de memoria de la posicion
+	//del primer elemento del arreglo
+	cout << "direccion de memoria de arreglo1: " << arreglo1 << endl;
+	cout << "direccion de memoria de arreglo2: " << arreglo2 << endl;
+	
+	//si desea saber donde comienza y donde termina cualquier variable
+	//incluso un arreglo utilice las funciones begin y end
+	cout << "arreglo1 comienza en: " << begin(arreglo1) << endl;
+	cout << "arreglo1 termina en: " << end(arreglo1) << endl;
+	//para poder usar begin y end recuerde configurar su compilador
+	//de C++ para la version 11 de la libreria estandar.
+	
+	//saber cuantos elementos tiene un arreglo
+	cout << "Longitud de arreglo1: " << end(arreglo1)-begin(arreglo1) << endl;
+	cout << "Longitud de arreglo2: " << end(arreglo2)-begin(arreglo2) << endl;
+	
+	//imprimir el contenido del qrreglo2
+	for(int i = 0; i < end(arreglo2)-begin(arreglo2); i++){
+		cout << arreglo2[i] << endl;
+	}
+	
+	//la resta de end-begin se puede almacenar en una variable int
+	int x = end(arreglo2)-begin(arreglo2);
+	cout << "Longitud de arreglo2: " << x << endl;
 	
 	return 123;
 }
