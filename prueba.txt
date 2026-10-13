@@ -1,0 +1,4 @@
+UNAH Cortes
+10
+El valor de z es 100
+Rojo	Amarillo	Verde	Azul
