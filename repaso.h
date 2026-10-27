@@ -1,6 +1,7 @@
 //archivo de funciones
 #include<iostream>
 #include<stdexcept> //libreria para hacer: throw
+#define _USE_MATH_DEFINES	//agregue esto antes de cmath para poder usar M_PI
 #include<cmath>
 using namespace std;
 
@@ -73,6 +74,51 @@ void imprimirRectangulo(int ancho, int largo, char caracter){
 		cout << endl;
 	}
 }
+
+/*5. Haga una funcion que retorne el area de un circulo,
+dicha funcion va a recibir el radio del mismo.
+-> La funcion debe soportar el uso de double y float*/
+double areaCirculo(double radio){
+	return M_PI*pow(radio,2);
+}
+float areaCirculo(float radio){
+	return M_PI*pow(radio,2);
+}
+//cuando tenemos dos funciones con el mismo nombre pero diferente
+//firma a esto se le conoce como sobrecarga de funciones, o sea
+//dos o mas funciones con mismo nombre; pero diferente tipo de dato.
+
+/*6. Escriba una funcion llamada minimo, la cual debe devolver el
+menor de tres numeros. Dicha funcion tiene que permitir trabajar
+con numeros enteros, numeros double o numeros float*/
+
+/*En ocasiones nos encontramos con sobrecarga de funciones en la que
+repetimos el mismo codigo complejo varias veces lo cual no es practico.
+Aqui lo mas recomendado es dejar la logica solo en la version de la
+funcion que use el tipo de dato con mayor precision y luego las
+versiones con tipos de dato de menor precision solo deben mandar
+a llamar a la de mayor precision, esto se logra de la siguiente forma:*/
+
+//primero: se crea la funcion usando el tipo de dato mayor precision
+double minimo(double a, double b, double c){
+	if(a <= b && a <= c) return a;
+	if(b <= a && b <= c) return b;
+	if(c <= a && c <= b) return c;
+}
+//segundo: las funciones de menor precision deben andar a llamar a la de mayor precision
+int minimo(int a, int b, int c){
+	double x = a, y = b, z = c;
+	return minimo(x,y,z);
+}
+float minimo(float a, float b, float c){
+	double x = a, y = b, z = c;
+	return minimo(x,y,z);
+}
+//note que convertimos a double los valores int y los valores float
+//de cada una de las otras funciones.
+//esto para que al mandar a llamar minimo desde ellas se fuerce a consumir
+//la funcion que espera los doubles y es donde esta la logica.
+
 
 
 
