@@ -3,6 +3,8 @@
 #include<stdexcept> //libreria para hacer: throw
 #define _USE_MATH_DEFINES	//agregue esto antes de cmath para poder usar M_PI
 #include<cmath>
+#include<algorithm>
+
 using namespace std;
 
 /*1. Escriba una funcion llamada elevar que reciba
@@ -88,6 +90,7 @@ float areaCirculo(float radio){
 //firma a esto se le conoce como sobrecarga de funciones, o sea
 //dos o mas funciones con mismo nombre; pero diferente tipo de dato.
 
+
 /*6. Escriba una funcion llamada minimo, la cual debe devolver el
 menor de tres numeros. Dicha funcion tiene que permitir trabajar
 con numeros enteros, numeros double o numeros float*/
@@ -119,7 +122,31 @@ float minimo(float a, float b, float c){
 //esto para que al mandar a llamar minimo desde ellas se fuerce a consumir
 //la funcion que espera los doubles y es donde esta la logica.
 
+/*7. Escriba una funcion que devuelva true si un string esta escrito
+todo en mayusculas de lo contrario que devuelva false.*/
+bool stringEnMayusculas(string str){
+	string copia = str;
+	transform(copia.begin(),copia.end(),copia.begin(), ::toupper);
+	if( str == copia )
+		return true;
+	else
+		return false;
+}
 
+/*8. Escriba una funcion a la cual se le proporcione como parametros
+un string y un caracter, dicha funcion va a devolver un numero entero
+con la posicion de la primer coincidencia en
+la que fue encontraro el caracter dado dentro del string proporcionado.
+Si el caracter no fue encontrado; entonces devuelva -1.
+No tiene permitido usar la funcion find() del string*/
+int buscarCaracter(string str, char buscar){
+	for(int i = 0; i < str.length(); i++){
+		if(buscar == str[i])
+			return i;	//return termina con el for y con la funcion: hace retorno
+	}
+	//si llego hasta aqui es porque for termino y no encontro nada
+	return -1;
+}
 
 
 

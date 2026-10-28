@@ -43,6 +43,15 @@ int main(){
 		cout << minimo(50.5,34.22,83.33) << endl;
 		cout << minimo(6.7f,8.8f,1.4f) << endl;
 		
+		cout << stringEnMayusculas("Gato") << endl;
+		cout << stringEnMayusculas("GATO") << endl;
+		cout << stringEnMayusculas("GaTo") << endl;
+		cout << stringEnMayusculas("gATO") << endl;
+		
+		cout << buscarCaracter("San Pedro Sula", 'P') << endl;
+		cout << buscarCaracter("Honduras", 'd') << endl;
+		cout << buscarCaracter("San Pedro Sula", 'Z') << endl;
+		cout << buscarCaracter("San Pedro Sula", 's') << endl;
 		
 	}catch(exception &ex){
 		//para extrar el mensaje de error de una excepcion
