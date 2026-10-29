@@ -148,6 +148,61 @@ int buscarCaracter(string str, char buscar){
 	return -1;
 }
 
+/*9. Escriba una funcion que reciba como parametro un arreglo de string,
+dicha funcion va a imprimir el arreglo enviado. No va a devolver ningun valor.*/
+void imprimirArreglo(string arreglo[], int longitud){
+	/*Cuando se envia un arreglo como parametro de una funcion
+	sin usar apuntadores (no los hemos visto) entonces no es posible
+	obtener el tamaño del arreglo por medio de end()-begin()
+	ya que un arreglo enviado como parametro sin apuntadores
+	es una copia la cual por definicion no tiene tamaño definido
+	en el parametro de la funcion []
+	Por lo tanto se recomienda en estos casos pedir el tamaño del arreglo
+	como un segundo parametro.
+	*/
+	for(int i = 0; i < longitud; i++){
+		cout << arreglo[i] << endl;
+	}
+}
+
+/*10. Escriba una funcion que reciba como parametros un string
+y un arreglo de string, dicha funcion debera buscar el string
+proporcionado dentro del arreglo de string.
+Si es encontrado entonces retornara un numero entero con la
+posicion de la primera coincidencia donde se encontro, en caso
+de no encontrarlo entonces se retornará -1.*/
+int buscarStringEnArreglo(string buscar, string arreglo[], int longitud){
+	for(int i = 0; i < longitud; i++){
+		if(arreglo[i] == buscar)
+			return i;
+	}
+	//si llego aqui es porque no encontro nada:
+	return -1;
+}
+
+/*11. Escriba una funcion que reciba como parametros un string
+y un arreglo de string, dicha funcion debera buscar el string
+proporcionado dentro del arreglo de string IGNORANDO MAYUSCULAS Y MINUSCULAS.
+Si es encontrado entonces retornara un numero entero con la
+posicion de la primera coincidencia donde se encontro, en caso
+de no encontrarlo entonces se retornará -1.*/
+int buscarStringEnArregloIgnorarCasing(string buscar, string arreglo[], int longitud){
+	transform(buscar.begin(),buscar.end(),buscar.begin(),::toupper);
+	
+	string copia;
+	for(int i = 0; i < longitud; i++){
+		copia = arreglo[i];
+		transform(copia.begin(),copia.end(),copia.begin(),::toupper);
+		
+		if(copia == buscar)
+			return i;
+	}
+	//si llego aqui es porque no encontro nada:
+	return -1;
+}
+
+
+
 
 
 

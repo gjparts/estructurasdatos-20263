@@ -53,6 +53,25 @@ int main(){
 		cout << buscarCaracter("San Pedro Sula", 'Z') << endl;
 		cout << buscarCaracter("San Pedro Sula", 's') << endl;
 		
+		string ciudades[] = {"SPS","TGU","Ceiba","Choloma","Progreso","Omoa"};
+		imprimirArreglo(ciudades,end(ciudades)-begin(ciudades));
+		
+		int t = end(ciudades)-begin(ciudades);
+		cout << buscarStringEnArreglo("Progreso",ciudades,t) << endl;
+		cout << buscarStringEnArreglo("Yoro",ciudades,t) << endl;
+		cout << buscarStringEnArreglo("Omoa",ciudades,t) << endl;
+		cout << buscarStringEnArreglo("sps",ciudades,t) << endl;
+		cout << buscarStringEnArreglo("SPS",ciudades,t) << endl;
+		cout << buscarStringEnArreglo("CEIBA",ciudades,t) << endl;
+		
+		cout << "-----------------------------------" << endl;
+		cout << buscarStringEnArregloIgnorarCasing("Progreso",ciudades,t) << endl;
+		cout << buscarStringEnArregloIgnorarCasing("Yoro",ciudades,t) << endl;
+		cout << buscarStringEnArregloIgnorarCasing("Omoa",ciudades,t) << endl;
+		cout << buscarStringEnArregloIgnorarCasing("sps",ciudades,t) << endl;
+		cout << buscarStringEnArregloIgnorarCasing("SPS",ciudades,t) << endl;
+		cout << buscarStringEnArregloIgnorarCasing("CEIBA",ciudades,t) << endl;
+		
 	}catch(exception &ex){
 		//para extrar el mensaje de error de una excepcion
 		//debera declarar a ex como &ex
