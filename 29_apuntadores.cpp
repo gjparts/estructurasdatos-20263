@@ -12,6 +12,7 @@ medio de apuntadores:
 2) el espacio HEAP
 */
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 //funcion que suma 10 al numero enviado (no retorna)
@@ -64,6 +65,20 @@ de datos no tan voluminosas, objetos se recomienda usar el STACK.
    no verse en la necesidad de almacenar grandes volumenes de informacion
    en la RAM.*/
 
+//Otros ejemplos:
+//Haga una funcion void usando apuntadores al Stack que
+//eleve al cubo un numero entero enviado como parametro.
+//Puede usar pow si gusta.
+void cubo(int &numero){
+	numero = pow(numero,3);
+}
+
+/*Haga una funcion void que divida a la mitad el numero double
+que le enviemos, la funcion debe afectar al valor de origen.*/
+void mitad(double &numero){
+	numero = numero/2.0;
+}
+
 int main(){
 	int x = 50;
 	sumarDiez(x);
@@ -84,6 +99,14 @@ int main(){
 	//note que cuando se usa apuntadores al STACK no se necesita enviar &
 	
 	//observe que las funciones apuntadas alteran a x desde un ambito externo
+	
+	int z = 9;
+	cubo(z);
+	cout << z << endl;
+	
+	double w = 25;
+	mitad(w);
+	cout << w << endl;
 	
 	return 777;
 }
