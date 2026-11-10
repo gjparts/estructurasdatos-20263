@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Arbol.h"
+#include "Persona.h"
 using namespace std;
 
 int main(){
@@ -22,6 +23,58 @@ int main(){
 	cout << "especie: " << a1->especie << endl;
 	
 	//instanciar un objeto usando el STACK
+	Arbol a2; //cuando el objeto va en el Stack no se ejecuta el new para construirlo
+	//escribir las propiedades de a2
+	a2.alto = 7.56;
+	a2.ancho = 1.82;
+	a2.especie = "Caoba";
+	
+	//leer las propiedades de a2
+	cout << "a2 ------------------" << endl;
+	cout << "ancho: " << a2.ancho << endl;
+	cout << "alto: " << a2.alto << endl;
+	cout << "especie: " << a2.especie << endl;
+	//Observe que al trabajar en el Stack no se usan las flechas para
+	//acceder a las propiedades, sino se usa punto.
+	//Otra cosa es que el constructor no se ejecuta con new.
+	
+	Persona per1;
+	per1.nombre = "Gerardo Portillo";
+	per1.edad = 44;
+	per1.genero = 'M';
+	
+	cout << "per1 ------------------" << endl;
+	cout << "nombre: " << per1.nombre << endl;
+	cout << "edad: " << per1.edad << endl;
+	cout << "genero: " << per1.genero << endl;
+	
+	Persona per2;
+	cout << "per2 ------------------" << endl;
+	cout << "nombre: " << per2.nombre << endl;
+	cout << "edad: " << per2.edad << endl;
+	cout << "genero: " << per2.genero << endl;
+	//Note que per2 lo hicimos usando el constructor sin parametros
+	//por lo tanto nombre, edad y genero presentaran los valores con que fue
+	//inicializado.
+	
+	//aqui vamos a crear a per3, usando el constructor con todos los parametros:
+	Persona per3("Filomeno Colinas",82,'M');
+	per3.imprimir();
+	
+	//he creado per4 usando el constructor con dos parametros
+	Persona per4("Irene",44);
+	per4.imprimir();
+	per4.saludar(true);
+	per4.saludar(false);
 	
 	return 123;
 }
+
+
+
+
+
+
+
+
+
