@@ -48,7 +48,7 @@ class Persona{
 			cout << "************ Persona ************" << endl;
 			cout << "Nombre: " << this->nombre << endl;
 			cout << "Edad: " << this->edad << endl;
-			cout << "Genero: " << this->genero << endl;
+			cout << "Genero: " << this->generoDescripcion() << endl;
 			cout << "Es de la tercera edad? " << ( this->esTerceraEdad() ? "Si" : "No" ) << endl;
 		}
 		//metodo que imprime un saludo en ingles o en español
@@ -62,6 +62,15 @@ class Persona{
 		//metodo que devuelve true o false si la edad es mayor o igual que 60
 		bool esTerceraEdad(){
 			return (this->edad >= 60);
+		}
+		//metodo que devuelva el genero; pero como un string describiendolo
+		//M = Masculino, F = Femenino, x = Otros
+		string generoDescripcion(){
+			if(this->genero == 'M') return "Masculino";
+			if(this->genero == 'F') return "Femenino";
+			if(this->genero == 'X') return "Otros";
+			//en caso que no sea ninguna de las anteriores:
+			return "No configurado";
 		}
 };
 
