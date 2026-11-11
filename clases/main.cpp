@@ -1,6 +1,7 @@
 #include<iostream>
 #include "Arbol.h"
 #include "Persona.h"
+#include "Mascota.h"
 using namespace std;
 
 int main(){
@@ -66,6 +67,26 @@ int main(){
 	per4.imprimir();
 	per4.saludar(true);
 	per4.saludar(false);
+	
+	Mascota m1;
+	m1.Imprimir();
+	
+	//recuerden que al objeto se le puede asignar valores
+	//aunque lo haya construido sin parametros:
+	m1.nombre = "Palmerolo";
+	m1.especie = "Burro";
+	m1.genero = 'M';
+	m1.edad = 4;
+	m1.Imprimir();
+	
+	Mascota m2("Tinieblo", "Gato", 'M', 2, false);
+	m2.Imprimir();
+	
+	Mascota m3("Rosita","Lora",'H',1,false);
+	m3.Imprimir();
+	
+	Mascota m4("Killer","Perro",'M',3,true);
+	m4.Imprimir();
 	
 	return 123;
 }
