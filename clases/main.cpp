@@ -88,6 +88,8 @@ int main(){
 	Mascota m4("Killer","Perro",'M',3,true);
 	m4.Imprimir();
 	
+	
+	
 	return 123;
 }
 
