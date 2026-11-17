@@ -2,6 +2,7 @@
 #include "Arbol.h"
 #include "Persona.h"
 #include "Mascota.h"
+#include "Empleado.h"
 using namespace std;
 
 int main(){
@@ -88,7 +89,21 @@ int main(){
 	Mascota m4("Killer","Perro",'M',3,true);
 	m4.Imprimir();
 	
-	
+	try{
+		Empleado em1("Gerardo", 44, 'M', 15000, 'T');
+		em1.imprimir();
+		
+		//es posible leer la edad de em1 desde este ambito?
+		//cout << em1.edad << end;
+		//lo anterior da error porque edad es private
+		//para poder leer la edad debe hacerlo usando su respectivo get:
+		cout << em1.getEdad() << endl;
+		//si quiero escribir algo en em1, debo hacer a traves del set:
+		em1.setSalario(18000);
+		cout << em1.getSalario() << endl;	
+	}catch(exception &ex){
+		cout << ex.what() << endl;
+	}
 	
 	return 123;
 }
