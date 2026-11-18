@@ -3,6 +3,7 @@
 #include "Persona.h"
 #include "Mascota.h"
 #include "Empleado.h"
+#include "Estudiante.h"
 using namespace std;
 
 int main(){
@@ -101,6 +102,14 @@ int main(){
 		//si quiero escribir algo en em1, debo hacer a traves del set:
 		em1.setSalario(18000);
 		cout << em1.getSalario() << endl;	
+	}catch(exception &ex){
+		cout << ex.what() << endl;
+	}
+	
+	try{
+		Estudiante es1("Gerardo","20012002049","1401198201055",'M',
+			44,84.5f,"Ingenieria Industrial");
+		es1.imprimir();
 	}catch(exception &ex){
 		cout << ex.what() << endl;
 	}
