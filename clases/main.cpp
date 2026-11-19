@@ -4,6 +4,7 @@
 #include "Mascota.h"
 #include "Empleado.h"
 #include "Estudiante.h"
+#include "CuentaAhorro.h"
 using namespace std;
 
 int main(){
@@ -113,6 +114,75 @@ int main(){
 	}catch(exception &ex){
 		cout << ex.what() << endl;
 	}
+	
+	system("pause"); //hacer una pausa
+	
+	//imaginemos que el cliente tiene 3 cuentas de ahorro y
+	//le quiero dar un menu estilo cajero automatico
+	CuentaAhorro c1("Gerardo Portillo","12341234");
+	CuentaAhorro c2("Gerardo Portillo","76532234");
+	CuentaAhorro c3("Gerardo Portillo","98765432");
+	
+	CuentaAhorro actual = c1; //variable flag o bandera para la cuenta en uso
+	int opcion;
+	do{
+		system("cls"); //limpiar la pantalla
+		cout << "1) Consultar la cuenta" << endl;
+		cout << "2) Depositar dinero" << endl;
+		cout << "3) Retirar dinero" << endl;
+		cout << "4) Cambiar de cuenta" << endl;
+		cout << "5) Salir" << endl;
+		cout << "Digite una opcion: ";
+		cin >> opcion;
+		
+		system("cls"); //limpiar la pantalla
+		if(opcion == 1){
+			cout << "Consulta de cuenta ----------------------------------" << endl;
+			cout << "Cliente: " << actual.nombreCliente << endl;
+			cout << "Numero de cuenta: " << actual.numeroCuenta << endl;
+			cout << "Saldo actual: " << actual.getSaldo() << endl;
+		}
+		if(opcion == 2){
+			cout << "Depositar Dinero ------------------------------------" << endl;
+			cout << "Digite el monto a depositar: ";
+			float monto;
+			cin >> monto;
+			try{
+				actual.depositar(monto);
+				cout << "Deposito realizado correctamente" << endl;
+			}catch(exception &ex){
+				cout << ex.what() << endl;
+			}
+		}
+		if(opcion == 3){
+			cout << "Retirar Dinero ------------------------------------" << endl;
+			cout << "Digite el monto a retirar: ";
+			float monto;
+			cin >> monto;
+			try{
+				actual.retirar(monto);
+				cout << "Retiro realizado correctamente, tome su dinero." << endl;
+			}catch(exception &ex){
+				cout << ex.what() << endl;
+			}
+		}
+		if(opcion == 4){
+			cout << "Cambiarse de cuenta de ahorro ---------------------" << endl;
+			cout << "1) " << c1.numeroCuenta << ", Saldo: " << c1.getSaldo() << endl;
+			cout << "2) " << c2.numeroCuenta << ", Saldo: " << c2.getSaldo() << endl;
+			cout << "3) " << c3.numeroCuenta << ", Saldo: " << c3.getSaldo() << endl;
+			cout << "Seleccione la cuenta deseada: ";
+			int seleccion;
+			cin >> seleccion;
+			if(seleccion == 1) actual = c1;
+			if(seleccion == 2) actual = c2;
+			if(seleccion == 3) actual = c3;
+			if(seleccion < 1 || seleccion > 3) cout << "Cuenta no valida" << endl;
+		}
+		
+		system("pause");
+	}while(opcion != 5);
+	
 	
 	return 123;
 }
