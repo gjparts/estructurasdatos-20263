@@ -123,7 +123,20 @@ int main(){
 	CuentaAhorro c2("Gerardo Portillo","76532234");
 	CuentaAhorro c3("Gerardo Portillo","98765432");
 	
-	CuentaAhorro actual = c1; //variable flag o bandera para la cuenta en uso
+	//CuentaAhorro actual = c1; //variable flag o bandera para la cuenta en uso
+	//lo anterior no hace un apuntador al objeto original
+	//para poder afectar a c1 por medio de actual es necesario hacer un
+	//apuntador local:
+	CuentaAhorro *actual = &c1;
+	//aqui creamos un apuntador "supuestamente" al HEAP que apunte
+	//a la direccion de memoria de c1 (vea el ampersand)
+	//en realidad esto es un engaño al compilador ya que pareciera
+	//que apuntamos al HEAP; pero c1 fue declarado en el STACK
+	//por lo tanto el apuntador en realidad no va al HEAP sino al STACK.
+	//C++ cree que actual apunta al HEAP cuando en realidad no; pero
+	//se nos exige que cualquier miembro de actual se refiera a el con flecha ->
+	//en lugar de usar punto, lo cual cambiaremos a continuacion:
+	
 	int opcion;
 	do{
 		system("cls"); //limpiar la pantalla
@@ -138,9 +151,9 @@ int main(){
 		system("cls"); //limpiar la pantalla
 		if(opcion == 1){
 			cout << "Consulta de cuenta ----------------------------------" << endl;
-			cout << "Cliente: " << actual.nombreCliente << endl;
-			cout << "Numero de cuenta: " << actual.numeroCuenta << endl;
-			cout << "Saldo actual: " << actual.getSaldo() << endl;
+			cout << "Cliente: " << actual->nombreCliente << endl;
+			cout << "Numero de cuenta: " << actual->numeroCuenta << endl;
+			cout << "Saldo actual: " << actual->getSaldo() << endl;
 		}
 		if(opcion == 2){
 			cout << "Depositar Dinero ------------------------------------" << endl;
@@ -148,7 +161,7 @@ int main(){
 			float monto;
 			cin >> monto;
 			try{
-				actual.depositar(monto);
+				actual->depositar(monto);
 				cout << "Deposito realizado correctamente" << endl;
 			}catch(exception &ex){
 				cout << ex.what() << endl;
@@ -160,7 +173,7 @@ int main(){
 			float monto;
 			cin >> monto;
 			try{
-				actual.retirar(monto);
+				actual->retirar(monto);
 				cout << "Retiro realizado correctamente, tome su dinero." << endl;
 			}catch(exception &ex){
 				cout << ex.what() << endl;
@@ -174,9 +187,9 @@ int main(){
 			cout << "Seleccione la cuenta deseada: ";
 			int seleccion;
 			cin >> seleccion;
-			if(seleccion == 1) actual = c1;
-			if(seleccion == 2) actual = c2;
-			if(seleccion == 3) actual = c3;
+			if(seleccion == 1) actual = &c1; //se apunta a la direccion del objeto (no es copia)
+			if(seleccion == 2) actual = &c2;
+			if(seleccion == 3) actual = &c3;
 			if(seleccion < 1 || seleccion > 3) cout << "Cuenta no valida" << endl;
 		}
 		
