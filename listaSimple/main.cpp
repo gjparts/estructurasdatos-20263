@@ -33,5 +33,15 @@ int main(){
 		cout << ex.what() << endl;
 	}
 	
+	//prueba del metodo set
+	try{
+		lista.set(4,"Guanabana");
+		lista.set(1,"Melocoton");
+		lista.print();
+		lista.set(-900,"Noni");
+	}catch(exception &ex){
+		cout << ex.what() << endl;
+	}
+	
 	return 777;
 }

@@ -88,6 +88,14 @@ class ListaSimple{
 				posicionActual++; //suma 1 al contador de saltos
 			}
 		}
+		//Metodo para cambiar el valor de un Nodo que esta en determinada posicion
+		void set(int pos, string value){
+			//para no escribir otra vez todo el algoritmo de recorrido para localizar
+			//el Nodo en determinada posicion, lo mas practico en este caso es
+			//obtener el Nodo por medio del metodo get y luego al Nodo recuperado
+			//se le cambia el valor
+			this->get(pos)->value = value;
+		}
 };
 
 #endif
