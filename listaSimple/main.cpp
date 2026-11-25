@@ -18,5 +18,8 @@ int main(){
 	cout << "lontitud de la lista: " << lista.getLength() << endl;
 	cout << "Valor del primer nodo: " << lista.getFirst()->value << endl;
 	cout << "Valor del ultimo nodo: " << lista.getLast()->value << endl;
+	
+	lista.print();
+	
 	return 777;
 }

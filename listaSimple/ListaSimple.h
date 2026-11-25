@@ -3,6 +3,7 @@
 #define LISTASIMPLE_H
 
 #include<iostream>
+#include<stdexcept>
 #include "Nodo.h"
 using namespace std;
 
@@ -33,7 +34,7 @@ class ListaSimple{
 		//Metodos set
 		//Metodo para agregar un nuevo Nodo al final de la lista
 		void push(string value){
-			//1) crear un nuevo Nodo con el valor enviado (crear en stack)
+			//1) crear un nuevo Nodo con el valor enviado
 			Nodo *nuevo = new Nodo(value);
 			/*2) si length es 0 entonces:
 				* first y last apuntan a nuevo
@@ -51,6 +52,27 @@ class ListaSimple{
 			}
 			//3) sumar 1 a length
 			this->length++;
+		}
+		//Metodo para imprimir el contenido de la lista en la terminal
+		void print(){
+			//Algoritmo de recorrido
+			//1) Declarar una variable temporal de clase Nodo y apuntarla a first
+			Nodo *tmp = this->first;
+			//2) Mientras tmp sea distinto de NULL entonces vamos a:
+			//	a) Imprimir en value de tmp
+			//	b) Luego apuntar tmp hacia el next del tmp actual (pasar al siguente Nodo)
+			while(tmp != NULL){
+				cout << "[" << tmp->value << "]->";
+				tmp = tmp->next; //pasar al suguiente nodo
+			}
+			//el recorrido ha terminado:
+			cout << "NULL" << endl; //imprimir el letrero para NULL
+		}
+		//Metodo para recuperar un Nodo en determinada posicion
+		Nodo *get(int posicion){
+			//guard clauses: la posicion no puede ser un numero negativo
+			//y tampoco puede ser un numero para una posicion inexistente
+			if()
 		}
 };
 
