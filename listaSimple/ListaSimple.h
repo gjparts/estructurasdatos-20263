@@ -63,7 +63,7 @@ class ListaSimple{
 			//	b) Luego apuntar tmp hacia el next del tmp actual (pasar al siguente Nodo)
 			while(tmp != NULL){
 				cout << "[" << tmp->value << "]->";
-				tmp = tmp->next; //pasar al suguiente nodo
+				tmp = tmp->next; //pasar al siguiente nodo
 			}
 			//el recorrido ha terminado:
 			cout << "NULL" << endl; //imprimir el letrero para NULL
@@ -72,7 +72,21 @@ class ListaSimple{
 		Nodo *get(int posicion){
 			//guard clauses: la posicion no puede ser un numero negativo
 			//y tampoco puede ser un numero para una posicion inexistente
-			if()
+			if(posicion < 0) throw invalid_argument("posicion a obtener no debe ser negativa");
+			if(posicion >= this->length) throw invalid_argument("posicion fuera de los limites");
+			
+			//si llego aqui entonces, usamos el algoritmo de recorrido para llegar
+			//a la posicion solicitada
+			Nodo *tmp = this->first; //comenzar en el primer Nodo
+			int posicionActual = 0; //contador de saltos
+			
+			while(tmp != NULL){
+				if(posicionActual == posicion)
+					return tmp; //si saltamos hasta la posicion deseada pues retornamos ese Nodo
+				
+				tmp = tmp->next; //pasar al siguiente nodo
+				posicionActual++; //suma 1 al contador de saltos
+			}
 		}
 };
 

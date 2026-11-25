@@ -19,7 +19,19 @@ int main(){
 	cout << "Valor del primer nodo: " << lista.getFirst()->value << endl;
 	cout << "Valor del ultimo nodo: " << lista.getLast()->value << endl;
 	
+	//prueba del metodo print
 	lista.print();
+	
+	//prueba del metodo get
+	try{
+		cout << "Valor del Nodo en la posicion 2: " << lista.get(2)->value << endl;
+		cout << "Valor del Nodo en la posicion 0: " << lista.get(0)->value << endl;
+		cout << "Valor del Nodo en la posicion 5: " << lista.get(5)->value << endl;
+		//cout << "Valor del Nodo en la posicion 200: " << lista.get(200)->value << endl;
+		cout << "Valor del Nodo en la posicion -9: " << lista.get(-9)->value << endl;
+	}catch(exception &ex){
+		cout << ex.what() << endl;
+	}
 	
 	return 777;
 }
